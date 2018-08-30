@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+service Math {
+    rpc Sqrt (SqrtRequest) returns (SqrtResponse) {}
+    rpc Add (AddRequest) returns (AddResponse) {}
+    rpc Stat (stream StatRequest) returns (StatResponse) {}
+    rpc Factor (FactorRequest) returns (stream FactorResponse) {}
+}
+
+message AddRequest {
+    int32 valueA = 1;
+    int32 valueB = 2;
+}
+
+message AddResponse {
+    int32 sum = 1;
+}
+
+message SqrtRequest {
+    double value = 1;
+}
+
+message SqrtResponse {
+    double value = 1;
+}
+
+message StatRequest {
+    int32 value = 1;
+}
+
+message StatResponse {
+    int32 sum = 1;
+    int32 count = 2;
+}
+
+message FactorRequest {
+    int32 value = 1;
+}
+
+message FactorResponse {
+    int32 value = 1;
+}
